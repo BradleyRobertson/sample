@@ -3,7 +3,7 @@
 $user = "root";
 $pass = "root";
 $host = "localhost";
-$db = "a3_cooperInfo";
+$db = "db_cooperinfo";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 
@@ -13,6 +13,18 @@ if (!$conn) {
 }
 
 echo 'connected, yo!';
+
+if(isset($_GET['getVideo'])) {
+  $myQuery = "SELECT * FROM video";
+
+  $result = mysqli_query{$connm $myQuery};
+  $rows = array();
+
+  while($row = mysqli_fetch_assoc($result)){
+    $row[] = $row;
+  }
+  echo_json_encode($rows);
+}
 // 1. do a select for all of the car data
 //
 // $myQuery = "SELECT * FROM mainmodel";

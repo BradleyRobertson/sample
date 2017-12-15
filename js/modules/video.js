@@ -31,6 +31,36 @@ replayVideo() {
   overlay.querySelector('i').removeEventListener('click', video.replayedVideo);
 },
 
+fetchVideoThumbs(){
+  //debugger;
+  const url = '../includes/functions.php?getVideo=true';
+
+  fetch(url) // stuff
+  .then((resp) => resp.json())
+  .then((data) => {video.loadVideoThumbs(data); })
+  .catch(function(error){
+    console,log(error);
+  });
+},
+
+loadVideoThumbs(data){
+  let thumbHolder = document.querySelector('.video/thumbs');
+
+  data.forEach(thumb => {
+let string =
+  `li class="vid-thumb" role="button" data-videopath="mini_1">
+      <img src="images/vid1.jpg" alt="mini commercial" class="responsive">
+    </li>`
+  });
+},
+
+loadNewVideo(){
+  let videoPath = "video"
+
+  video.videoPlayer.src = videoPath;
+  video.videoPlayer.load();
+  video.videoPlayer.play();
+},
 //functionaloity
 
 init(){

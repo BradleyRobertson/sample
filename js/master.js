@@ -21,8 +21,14 @@
     httpRequest.send(); // run the PHP file (or whatever is in the .open method above)
   }
 
+  fetch(url)
+    .then((resp) => resp.json())
+    .then(data) => {processResult(data): })
+    .catch(function(error)
+  });
+
   // httpRequest.onreadystatechange (on line 19) will call this 4 times. We process / monitor the status of the AJAX call. When it's done (lines 29 and 30) that means our call was successful and we have some data returned from the database to process
-  function processRequest() {
+  /*function processRequest() {
     let reqIndicator = document.querySelector('.request-state');
     reqIndicator.textContent = httpRequest.readyState;
 
@@ -36,7 +42,7 @@
         processResult(data);
       } else {
         // if anything went wrong with the AJAX call, this will be called instead and we'll be done => need to fix any errors
-        alert('There was a problem with the request.');
+        alert('There was a problem with the request.');*/
       }
     }
   }
